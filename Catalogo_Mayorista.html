@@ -1,2208 +1,545 @@
-
 <!DOCTYPE html>
 
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Catálogo Mayoristas - APERFUMATE</title>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Catálogo Mayorista APERFUMATE · Válido hasta 30/11/2025</title>
 <style>
-    body {
-      background-color: #1a1a1a;
-      color: #f1e0d6;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0 10px;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 20px auto;
-      max-width: 180px;
-      width: 100%;
-      border-radius: 20px;
-    }
-    h1 {
-      color: #d4af7f;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .info {
-      background-color: #d4af7f;
-      color: #1a1a1a;
-      border-radius: 15px;
-      padding: 25px 30px;
-      margin: 20px auto;
-      text-align: center;
-      font-size: 0.95rem;
-      line-height: 1.7em;
-      max-width: 800px;
-    }
-    .info strong {
-      display: block;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-    .info em {
-      display: block;
-      margin-top: 20px;
-      font-style: italic;
-      font-weight: bold;
-    }
-    input {
-      margin: 10px auto 20px auto;
-      display: block;
-      width: 100%;
-      max-width: 450px;
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-    }
-    table.catalogo {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      table-layout: auto;
-    }
-    table.catalogo th, table.catalogo td {
-      padding: 10px;
-      text-align: center;
-      border-bottom: 1px solid #444;
-      vertical-align: middle;
-    }
-    table.catalogo th {
-      background-color: #d4af7f;
-      color: #1a1a1a;
-      font-size: 1rem;
-    }
-    table.catalogo td {
-      font-size: 0.95rem;
-    }
-    table.catalogo tr:hover {
-      background-color: #2a2a2a;
-    }
-    @media (max-width: 768px) {
-      table.catalogo th, table.catalogo td {
-        font-size: 0.85rem;
-        padding: 8px;
-      }
-    }
-  </style>
+  :root{
+    --gold:#d4af37;
+    --gold-2:#b8922c;
+    --bg:#111;
+    --card:#1a1a1a;
+    --ink:#f3f3f3;
+    --muted:#cfcfcf;
+    --border:rgba(212,175,55,.45);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
+  .hero{text-align:center;margin-top:10px}
+  .logo{width:220px;height:220px;border-radius:28px;overflow:hidden;margin:0 auto 16px;box-shadow:0 6px 30px rgba(0,0,0,.5), inset 0 0 0 1px var(--border);}
+  .logo img{width:100%;height:100%;object-fit:cover}
+  h1{font-size:2.2rem;margin:10px 0;color:var(--gold);letter-spacing:.4px}
+  .valid{color:var(--muted);margin-top:-6px;margin-bottom:10px}
+  .info{color:#f1e2b0;background:#28231c;border:1px solid var(--border);border-radius:12px;padding:10px 14px;display:inline-block;margin-bottom:16px}
+  .pills{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+  .pill{background:#28231c;color:#f1e2b0;border:1px solid var(--border);padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:600;transition:.2s}
+  .pill.active,.pill:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+  .search{display:flex;justify-content:center;margin:8px 0 22px}
+  .search input{width:min(640px,95%);padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:#fff;outline:none;font-size:1rem}
+  .table-card{background:#0f0f0f;border-radius:14px;border:1px solid var(--border);overflow:hidden}
+  table{width:100%;border-collapse:separate;border-spacing:0}
+  thead th{background:#2b261b;color:#f8f3e0;padding:14px;text-align:center;border-bottom:2px solid var(--gold)}
+  tbody td{padding:14px 10px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);text-align:center}
+  tbody tr td:first-child{border-left:1px solid var(--border)}
+  tbody tr:hover{background:#17140f}
+  .price-usd{font-weight:800;color:#f7e3a3}
+  footer{text-align:center;color:var(--muted);padding:22px 10px}
+</style>
 </head>
 <body>
-<div class="container">
-<img alt="Logo Aperfumate" class="logo" src="Logo Dorado.png"/>
+<div class="wrap">
+<section class="hero">
+<div class="logo"><img alt="Aperfumate" src="Logo Dorado.png"/></div>
 <h1>Catálogo Mayorista APERFUMATE</h1>
-<div class="info">
-<strong>Compras Mayoristas:</strong>
-      Mínimo de compra 5 unidades (Se puede combinar cualquier fragancia)
-
-      <strong>Forma de Pago:</strong>
-      El precio se cotiza según la cotización del dólar blue venta del día<br/>
-      Se aceptan pagos por transferencia, efectivo en pesos o USD, vía cripto USDT.
-
-      <strong>Tiempo de entrega:</strong>
-      El pedido estará listo entre 3 a 5 días hábiles.
-
-      <strong>Forma de entrega:</strong>
-      Retiros por Jujuy 2040, Rosario<br/>
-      Envíos a todo el país por Vía Cargo, Andreani, Correo Argentino.
-
-      <strong>Calidad:</strong>
-      Todos los productos que trabajamos son ORIGINALES.
-
-      <em>Si el perfume que estás buscando no aparece en esta lista,<br/>
-      preguntanos, que seguro lo podemos conseguir.</em>
+<div class="valid">Válido hasta: <strong>30/11/2025</strong></div>
+<div class="notice-card">
+<h3>Compras Mayoristas:</h3>
+<p>Mínimo de compra 5 unidades (Se puede combinar cualquier fragancia)</p>
+<h3>Forma de Pago:</h3>
+<p>El precio se cotiza según la cotización del dólar blue venta del día</p>
+<p>Se aceptan pagos por transferencia, efectivo en pesos o USD, vía cripto USDT.</p>
+<h3>Tiempo de entrega:</h3>
+<p>El pedido estará listo entre 3 a 5 días hábiles.</p>
+<h3>Forma de entrega:</h3>
+<p>Retiros por Jujuy 2040, Rosario</p>
+<p>Envíos a todo el país por Vía Cargo, Andreani, Correo Argentino.</p>
+<h3>Calidad:</h3>
+<p>Todos los productos que trabajamos son <strong>ORIGINALES</strong>.</p>
+<p class="emph">Si el perfume que estás buscando no aparece en esta lista,<br/>preguntanos, que seguro lo podemos conseguir.</p>
 </div>
-<input id="buscador" placeholder="Buscar por producto o marca..." type="text"/>
-<table border="1" class="dataframe catalogo">
-<thead>
-<tr style="text-align: right;">
-<th>Producto/Fragancia</th>
-<th>Línea</th>
-<th>Precio USD</th>
-</tr>
-</thead>
+<style>
+.notice-card{
+  background:#e2b56a1a;
+  border:1px solid rgba(212,175,55,.6);
+  border-radius:16px;
+  padding:18px 20px;
+  max-width: 800px;
+  margin: 12px auto 18px;
+  color:#f7f0da;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(212,175,55,.25);
+}
+.notice-card h3{
+  margin: 10px 0 4px;
+  color:#ffd27a;
+}
+.notice-card p{ 
+  margin: 4px 0 8px;
+}
+.notice-card .emph{
+  font-style: italic;
+  font-weight: 700;
+  color:#fff3cd;
+  margin-top: 10px;
+}
+@media (max-width:700px){
+  .notice-card { margin: 10px 12px 18px; }
+}
+</style>
+
+<div class="pills" id="pills">
+<div class="pill active" data-linea="">Todos</div>
+<div class="pill" data-linea="AFNAN">AFNAN</div><div class="pill" data-linea="AL HARAMAIN">AL HARAMAIN</div><div class="pill" data-linea="ARMAF">ARMAF</div><div class="pill" data-linea="BHARARA">BHARARA</div><div class="pill" data-linea="FRENCH AVENUE">FRENCH AVENUE</div><div class="pill" data-linea="LATAFFA">LATAFFA</div><div class="pill" data-linea="MAISON ALHAMBRA">MAISON ALHAMBRA</div><div class="pill" data-linea="RASASI">RASASI</div><div class="pill" data-linea="RAYHAAN">RAYHAAN</div>
+</div>
+<div class="search"><input id="q" placeholder="Buscar por fragancia o línea..."/></div>
+</section>
+<section class="table-card">
+<table id="catalogo">
+<thead><tr><th>Fragancia</th><th>Línea</th><th>Precio USD</th></tr></thead>
 <tbody>
-<tr>
-<td>9AM DIVE 100ML</td>
-<td>AFNAN</td>
-<td>40</td>
-</tr>
-<tr>
-<td>9AM PINK 100ML</td>
-<td>AFNAN</td>
-<td>40</td>
-</tr>
-<tr>
-<td>9 AM BLANCO</td>
-<td>AFNAN</td>
-<td>40</td>
-</tr>
-<tr>
-<td>9PM 100ML</td>
-<td>AFNAN</td>
-<td>40</td>
-</tr>
-<tr><td>9PM ELIXIR 100ML</td><td>AFNAN</td><td>48</td></tr><tr>
-<td>9PM FEM (VIOLETA)</td>
-<td>AFNAN</td>
-<td>42</td>
-</tr>
-<tr>
-<td>9PM REBEL 100ML</td>
-<td>AFNAN</td>
-<td>43</td>
-</tr>
-<tr>
-<td>HUNTER KILLER</td>
-<td>AFNAN</td>
-<td>37</td>
-</tr>
-<tr>
-<td>HISTORIC OLMEDA 100ML</td>
-<td>AFNAN</td>
-<td>41</td>
-</tr>
-<tr>
-<td>HISTORIC DORIA 100ML</td>
-<td>AFNAN</td>
-<td>40</td>
-</tr>
-<tr>
-<td>PURE MUSK</td>
-<td>AFNAN</td>
-<td>40</td>
-</tr>
-<tr>
-<td>SUPREMACY COLLECTORS EDITION 100ML</td>
-<td>AFNAN</td>
-<td>45</td>
-</tr>
-<tr>
-<td>SUPREMACY NOIR 100ML.</td>
-<td>AFNAN</td>
-<td>35</td>
-</tr>
-<tr>
-<td>SUPREMACY GOLD 100ML</td>
-<td>AFNAN</td>
-<td>35</td>
-</tr>
-<tr>
-<td>SUPREMACY NOT ONLY INTENSE 100ML</td>
-<td>AFNAN</td>
-<td>51</td>
-</tr>
-<tr>
-<td>SUPREMACY INCENSE</td>
-<td>AFNAN</td>
-<td>42</td>
-</tr>
-<tr>
-<td>SUPREMACY TAPIS ROUGE</td>
-<td>AFNAN</td>
-<td>45</td>
-</tr>
-<tr>
-<td>SUPREMACY  SILVER</td>
-<td>AFNAN</td>
-<td>37</td>
-</tr>
-<tr>
-<td>SUPREMACY IN OUD</td>
-<td>AFNAN</td>
-<td>45</td>
-</tr>
-<tr>
-<td>TURATHI BLUE 90ML</td>
-<td>AFNAN</td>
-<td>41</td>
-</tr>
-<tr>
-<td>TURATHI RED 90ML</td>
-<td>AFNAN</td>
-<td>41</td>
-</tr>
-<tr>
-<td>TURATHI BROWN 90ML</td>
-<td>AFNAN</td>
-<td>41</td>
-</tr>
-<tr>
-<td>24 CARAT PURE GOLD 100ML</td>
-<td>LATTAFA</td>
-<td>26</td>
-</tr>
-<tr>
-<td>ADEEB 80ML</td>
-<td>LATTAFA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>AFFECTION 100ML</td>
-<td>LATTAFA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>ANGHAM 100 ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>ANTIQUE 100ML</td>
-<td>LATTAFA</td>
-<td>42</td>
-</tr>
-<tr>
-<td>ART OF ARABIA I 100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>ART OF ARABIA II 100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>ART OF ARABIA III 100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>ART OF UNIVERSE 100ML</td>
-<td>LATTAFA</td>
-<td>41</td>
-</tr>
-<tr>
-<td>ART OF NATURE 100ML</td>
-<td>LATTAFA</td>
-<td>42</td>
-</tr>
-<tr>
-<td>ARTISAN ETHNIQUE 100ML</td>
-<td>LATTAFA</td>
-<td>36</td>
-</tr>
-<tr>
-<td>AFEEF 100ML</td>
-<td>LATTAFA</td>
-<td>60</td>
-</tr>
-<tr>
-<td>AMEER 100ML</td>
-<td>LATTAFA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>AMEER AL OUDH 100ML</td>
-<td>LATTAFA</td>
-<td>22</td>
-</tr>
-<tr>
-<td>AMETHYST 100ML</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>AL QIAM GOLD 100ML</td>
-<td>LATTAFA</td>
-<td>34</td>
-</tr>
-<tr>
-<td>AJWAA 90ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>AJWAD 60ML</td>
-<td>LATTAFA</td>
-<td>26</td>
-</tr>
-<tr>
-<td>AJWAD PINK TO PINK 60 ML</td>
-<td>LATTAFA</td>
-<td>26</td>
-</tr>
-<tr>
-<td>ASAD (NEGRO) 100ML</td>
-<td>LATTAFA</td>
-<td>31</td>
-</tr>
-<tr>
-<td>ASAD ZANZIBAR 100ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>ASAD BOURBON</td>
-<td>LATTAFA</td>
-<td>39</td>
-</tr>
-<tr>
-<td>AMEERAT AL ARAB EDP 100ML</td>
-<td>LATTAFA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>AMEERAT AL ARAB PRIVE ROSE 100ML</td>
-<td>LATTAFA</td>
-<td>25</td>
-</tr>
-<tr>
-<td>ANSAAM GOLD 100ML</td>
-<td>LATTAFA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>ANSAAM SILVER 100ML</td>
-<td>LATTAFA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>AJAYEB DUBAI 100ML</td>
-<td>LATTAFA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>AL NASHAMA</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>AL NASHAMA CAPRICE 100ML</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>ANA ABIYEDH 100ML</td>
-<td>LATTAFA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>ANA ABIYEDH ROUGE 100ML</td>
-<td>LATTAFA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>BAYAAN 100ML</td>
-<td>LATTAFA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>BLUE SAPPHIRE 100ML</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>BLUSH NOBLE (ROSA) 100ML</td>
-<td>LATTAFA</td>
-<td>34</td>
-</tr>
-<tr>
-<td>BRIOCHE VANILLE 100ML</td>
-<td>LATTAFA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>CONFIDENTIAL GOLD 100ML</td>
-<td>LATTAFA</td>
-<td>24</td>
-</tr>
-<tr>
-<td>ECLAIRE 100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>ETERNAL OUD 100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>EMEER 100ML</td>
-<td>LATTAFA</td>
-<td>42</td>
-</tr>
-<tr>
-<td>EMAAN 100ML</td>
-<td>LATTAFA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>EJAAZI 100ML</td>
-<td>LATTAFA</td>
-<td>25</td>
-</tr>
-<tr>
-<td>FAKHAR SILVER BLACK 100 ML</td>
-<td>LATTAFA</td>
-<td>34</td>
-</tr>
-<tr>
-<td>FAKHAR GOLD 100 ML</td>
-<td>LATTAFA</td>
-<td>39</td>
-</tr>
-<tr>
-<td>FAKHAR ROSE 100 ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>HAYA 100ML</td>
-<td>LATTAFA</td>
-<td>39</td>
-</tr>
-<tr>
-<td>HIS CONFESSION 100ML</td>
-<td>LATTAFA</td>
-<td>39</td>
-</tr>
-<tr>
-<td>HER CONFESSION 100ML</td>
-<td>LATTAFA</td>
-<td>39</td>
-</tr>
-<tr>
-<td>HAYAATI 100ML</td>
-<td>LATTAFA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>HAYAATI FLORENCE 100ML</td>
-<td>LATTAFA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>HAYAATI GOLD ELIXIR 100ML</td>
-<td>LATTAFA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>HAYAATI AL MALECKY 100ML</td>
-<td>LATTAFA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>HONOR AND GLORY 100ML</td>
-<td>LATTAFA</td>
-<td>31</td>
-</tr>
-<tr>
-<td>ISHQ GOLD 100 ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>ISHQ SILVER 100ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>JASO OR</td>
-<td>LATTAFA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>KHAMRAH 100ML</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>KHAMRAH QAWHA 100ML</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>KHAMRAH DUKHAN</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>KHANJAR 85ML</td>
-<td>LATTAFA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>LIAM BLUE SHINE</td>
-<td>LATTAFA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>LEEN</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>LAIL MALEKI 100ML</td>
-<td>LATTAFA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>LAIL MALEKI MOROCCAN BLUE 100ML</td>
-<td>LATTAFA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>MAYAR ROSE 100ML</td>
-<td>LATTAFA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>MAYAR CHERRY 100ML</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>MAYAR NATURAL INTENSE 100ML</td>
-<td>LATTAFA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>MAAHIR BLACK 100ML</td>
-<td>LATTAFA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>MAAHIR LEGACY 100ML</td>
-<td>LATTAFA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>MAAHIR GOLD 100ML</td>
-<td>LATTAFA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>MUSAMAM 100ML</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>MUSAMAM WHITE 100ML</td>
-<td>LATTAFA</td>
-<td>50</td>
-</tr>
-<tr>
-<td>MUGHAL FORT 100ML</td>
-<td>LATTAFA</td>
-<td>42</td>
-</tr>
-<tr>
-<td>MOHRA SILKY ROSE 100ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>NAJDIA INTENSE 100ML</td>
-<td>LATTAFA</td>
-<td>25</td>
-</tr>
-<tr>
-<td>NEBRAS 100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>OUD MOOD</td>
-<td>LATTAFA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>OUD FOR GLORY 100ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>PRIDE PISA 100ML</td>
-<td>LATTAFA</td>
-<td>57</td>
-</tr>
-<tr>
-<td>PRIDE D' ANTIQUITES 100ML</td>
-<td>LATTAFA</td>
-<td>45</td>
-</tr>
-<tr>
-<td>PRIDE GHARAM 100ML</td>
-<td>LATTAFA</td>
-<td>45</td>
-</tr>
-<tr>
-<td>QAED AL FURSAN BLACK 90 ML</td>
-<td>LATTAFA</td>
-<td>31</td>
-</tr>
-<tr>
-<td>QAED AL FURSAN UNLIMITED 90 ML</td>
-<td>LATTAFA</td>
-<td>25</td>
-</tr>
-<tr>
-<td>QIMMAH WOMEN 100ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>QIMMAH MEN 100ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>ROYAL SAPPHIRE</td>
-<td>LATTAFA</td>
-<td>37</td>
-</tr>
-<tr>
-<td>RAVE NOW WOMEN 100ML</td>
-<td>LATTAFA</td>
-<td>31</td>
-</tr>
-<tr>
-<td>RAMZ SILVER</td>
-<td>LATTAFA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>RAGHBA FEM 100ML+DEO 50ML</td>
-<td>LATTAFA</td>
-<td>23</td>
-</tr>
-<tr>
-<td>SAKEENA</td>
-<td>LATTAFA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>SHAEEN GOLD 100 ML</td>
-<td>LATTAFA</td>
-<td>33</td>
-</tr>
-<tr>
-<td>SHAEEN SILVER 100 ML</td>
-<td>LATTAFA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>SUBLIME 100ML</td>
-<td>LATTAFA</td>
-<td>31</td>
-</tr>
-<tr>
-<td>SONDOS 100ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>SHER 100ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>SAFEER 100ML</td>
-<td>LATTAFA</td>
-<td>42</td>
-</tr>
-<tr>
-<td>THE KINGDOM 100ML</td>
-<td>LATTAFA</td>
-<td>43</td>
-</tr>
-<tr>
-<td>THE KINGDOM FEM 100ML</td>
-<td>LATTAFA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>TERIAQ  100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>TERIAQ INTENSE 100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>THARWAH SILVER 100ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>THARWAH GOLD 100ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>VELVET ROSE 100ML</td>
-<td>LATTAFA</td>
-<td>24</td>
-</tr>
-<tr>
-<td>VICTORIA  100ML</td>
-<td>LATTAFA</td>
-<td>40</td>
-</tr>
-<tr>
-<td>VICTORIA FLOWERS LILUM 100ML</td>
-<td>LATTAFA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>VINTAGE RADIO</td>
-<td>LATTAFA</td>
-<td>41</td>
-</tr>
-<tr>
-<td>VINTAGE CASTLE 100ML</td>
-<td>LATTAFA</td>
-<td>52</td>
-</tr>
-<tr>
-<td>WAJOOD 100ML</td>
-<td>LATTAFA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>WAZZER</td>
-<td>LATTAFA</td>
-<td>39</td>
-</tr>
-<tr>
-<td>YARA ROSA 100 ML</td>
-<td>LATTAFA</td>
-<td>36</td>
-</tr>
-<tr>
-<td>YARA TOUS 100 ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>YARA CANDY 100 ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>YARA MOI 100 ML</td>
-<td>LATTAFA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>ATHENA 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>ALIVE NOW 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>AMBER Y LEATHER</td>
-<td>MAISON ALHAMBRA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>ALPÍNE HOMME SPORT 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>AL CHANTS 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>AL CHANTS TENDERINA 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>AL COMO MOISELLE 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>AVANT SILK 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>AVANT RUBY 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>35</td>
-</tr>
-<tr>
-<td>B.A.D FEMME 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>B.A.D HOMME 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>BAROQUE ROUGE 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>BAROQUE ROUGE EXTREME 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>CASSIUS</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>CORAL BLUSH</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>DARK AOUD 80ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>DARK DOOR SPORT</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>DECADENT DREAM</td>
-<td>MAISON ALHAMBRA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>DECADENT WONDER</td>
-<td>MAISON ALHAMBRA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>DELILAH POUR FEMME 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>DELILAH BLANC 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>38</td>
-</tr>
-<tr>
-<td>DARK AOUD 80ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>DARK DOOR SPORT</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>ETERNAL TOUCH 80ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>EXCLUSIVE TABAC 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>GLACIER BELLA 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>GLACIER LE NOIR 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>HERCULES 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>INFINI ELIXIR</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>INFINI OUD</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>INFINI ROSE</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>JARDIN DE REVE/PARIS</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>JEAN LOWE NOIR 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>26</td>
-</tr>
-<tr>
-<td>JEAN LOWE FRAICHE 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>22</td>
-</tr>
-<tr>
-<td>JEAN LOWE IMMORTAL 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>KISMET FOR WOMEN 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>LA VIVACITE INTENSE</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>LEONIE 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>MONTAIGNE COCO 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>MONTAIGNE VAINILLA 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>26</td>
-</tr>
-<tr>
-<td>NO2 MEN 80ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>OLIVIA  BLOSSOM 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>TORO POUR HOMME 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>PACIFIC BLUE 80ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>PANTHER POR HOMME</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>PHILOS PURA 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>PHILOS OPUS NOIR</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>PHILOS ROSSO</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>PINK VELVET 80ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>PERSEUS EXCLUSIF 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>SCEPTRE AMAZONITE 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>SCEPTRE OCEANA EDP 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>29</td>
-</tr>
-<tr>
-<td>SALVO INTENSE 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>25</td>
-</tr>
-<tr>
-<td>SALVO ELIXIR 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>25</td>
-</tr>
-<tr>
-<td>SALVO EDP 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>27</td>
-</tr>
-<tr>
-<td>SUMMER FOREVER</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>SO CANDID POUR MASC 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>SO CANDID FEM 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>SMOKY TOUCH 80ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>VERSENCIA  CRYSTAL  100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>26</td>
-</tr>
-<tr>
-<td>VIP ROSE SEDUCTION 100ML (CLON 212</td>
-<td>MAISON ALHAMBRA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>VICTORIOSO 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>31</td>
-</tr>
-<tr>
-<td>VICTORIOSO NERO 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>30</td>
-</tr>
-<tr>
-<td>YEAHI MAN 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>YOUR TOUCH FEM 100ML</td>
-<td>MAISON ALHAMBRA</td>
-<td>28</td>
-</tr>
-<tr>
-<td>AL HARAMAIN GOLD EDITION 120 ML</td>
-<td>AL HARAMAIN</td>
-<td>70</td>
-</tr>
-<tr>
-<td>HARAMAIN AMBER OUD DUBAI NIGHT 10</td>
-<td>AL HARAMAIN</td>
-<td>70</td>
-</tr>
-<tr>
-<td>HARAMAIN AMBER OUD DUBAI AQUA  10</td>
-<td>AL HARAMAIN</td>
-<td>70</td>
-</tr>
-<tr>
-<td>ARAMAIN AMBER OUD ULTRA VIOLET 10</td>
-<td>AL HARAMAIN</td>
-<td>75</td>
-</tr>
-<tr>
-<td>L HARAMAIN AVENTURE CIEL MASC 100</td>
-<td>AL HARAMAIN</td>
-<td>41</td>
-</tr>
-<tr>
-<td>AL HARAMAIN AVENTURE FEM  100ML</td>
-<td>AL HARAMAIN</td>
-<td>40</td>
-</tr>
-<tr>
-<td>AL HARAMAIN AVENTURE MASC 100ML</td>
-<td>AL HARAMAIN</td>
-<td>44</td>
-</tr>
-<tr>
-<td>HARAMAIN AVENTURE GRAPEFRUIT 100</td>
-<td>AL HARAMAIN</td>
-<td>42</td>
-</tr>
-<tr>
-<td>HARAMAIN AVENTURE INTENSE MAS 10</td>
-<td>AL HARAMAIN</td>
-<td>44</td>
-</tr>
-<tr>
-<td>AL HARAMAIN AVENTURE KNIGHT 100ML</td>
-<td>AL HARAMAIN</td>
-<td>43</td>
-</tr>
-<tr>
-<td>L AL HARAMAIN AVENTURE ROSE 100M</td>
-<td>AL HARAMAIN</td>
-<td>46</td>
-</tr>
-<tr>
-<td>ORIENTICA ROYAL BLEU 80 ML</td>
-<td>AL HARAMAIN</td>
-<td>72</td>
-</tr>
-<tr>
-<td>ORIENTICA ROYAL BLEU 150 ML</td>
-<td>AL HARAMAIN</td>
-<td>82</td>
-</tr>
-<tr>
-<td>ORIENTICA AMBER ROUGE 80 ML</td>
-<td>AL HARAMAIN</td>
-<td>74</td>
-</tr>
-<tr>
-<td>ORIENTICA AMBER ROUGE 150 ML</td>
-<td>AL HARAMAIN</td>
-<td>85</td>
-</tr>
-<tr>
-<td>ORIENTICA  ROYAL  AMBER</td>
-<td>AL HARAMAIN</td>
-<td>81</td>
-</tr>
-<tr>
-<td>ORIENTICA DANIA</td>
-<td>AL HARAMAIN</td>
-<td>105</td>
-</tr>
-<tr>
-<td>AETHER EXTRAIT EDP 100ML</td>
-<td>FRENCH AVENUE</td>
-<td>49</td>
-</tr>
-<tr>
-<td>DIVIN AOUD 100ML</td>
-<td>FRENCH AVENUE</td>
-<td>49</td>
-</tr>
-<tr>
-<td>ESSENSE DE NOIR 100ML</td>
-<td>FRENCH AVENUE</td>
-<td>45</td>
-</tr>
-<tr>
-<td>GHOST SPECTRE</td>
-<td>FRENCH AVENUE</td>
-<td>50</td>
-</tr>
-<tr>
-<td>LIQUID BRUN 100ML</td>
-<td>FRENCH AVENUE</td>
-<td>59</td>
-</tr>
-<tr>
-<td>NICHE THE NIGHT 60ML</td>
-<td>FRENCH AVENUE</td>
-<td>37</td>
-</tr>
-<tr>
-<td>NICHE THE FIRE 60ML</td>
-<td>FRENCH AVENUE</td>
-<td>37</td>
-</tr>
-<tr>
-<td>ROSE DEMOTION 100ML</td>
-<td>FRENCH AVENUE</td>
-<td>44</td>
-</tr>
-<tr>
-<td>TROPICAL KISS 80ML</td>
-<td>FRENCH AVENUE</td>
-<td>48</td>
-</tr>
-<tr>
-<td>VIE BRISE 80ML</td>
-<td>FRENCH AVENUE</td>
-<td>30</td>
-</tr>
-<tr>
-<td>VIE EAU 80ML</td>
-<td>FRENCH AVENUE</td>
-<td>30</td>
-</tr>
-<tr>
-<td>VIE FEU 80ML</td>
-<td>FRENCH AVENUE</td>
-<td>30</td>
-</tr>
-<tr>
-<td>AMEERATHI 100ML</td>
-<td>AL WATANIAH</td>
-<td>25</td>
-</tr>
-<tr>
-<td>ATTAR AL WESAL</td>
-<td>AL WATANIAH</td>
-<td>29</td>
-</tr>
-<tr>
-<td>DURRAT AL AROOS 85ML</td>
-<td>AL WATANIAH</td>
-<td>25</td>
-</tr>
-<tr>
-<td>SABAH AL WARD WOMAN 100ML</td>
-<td>AL WATANIAH</td>
-<td>28</td>
-</tr>
-<tr>
-<td>ROSE MYSTERY INTENSE 100ML</td>
-<td>AL WATANIAH</td>
-<td>27</td>
-</tr>
-<tr>
-<td>OUD MYSTERY INTENSE 100ML</td>
-<td>AL WATANIAH</td>
-<td>28</td>
-</tr>
-<tr>
-<td>BHARARA KING 100ML</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA KING PARFUM 100ML</td>
-<td>BHARARA</td>
-<td>75</td>
-</tr>
-<tr>
-<td>BHARARA KING 150ML</td>
-<td>BHARARA</td>
-<td>85</td>
-</tr>
-<tr>
-<td>BHARARA CHOCOLATE</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA GODDESS</td>
-<td>BHARARA</td>
-<td>60</td>
-</tr>
-<tr>
-<td>BHARARA SCARLET</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA KING GOLD EDITION 100ML</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA VIKING KASHMIR 100ML</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA VIKING DUBAI 100ML</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA VIKING BEIRUT 100ML</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA VIKING CAIRO 100ML</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>BHARARA VIKING RIO 100ML</td>
-<td>BHARARA</td>
-<td>70</td>
-</tr>
-<tr>
-<td>CHECKMATE QUEEN 100ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>CHECKMATE KING 100ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT INTENSE 105 ML</td>
-<td>ARMAF</td>
-<td>36</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT 200 ML</td>
-<td>ARMAF</td>
-<td>62</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT MILESTONE 105ML</td>
-<td>ARMAF</td>
-<td>42</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT UNTOLD 105ML</td>
-<td>ARMAF</td>
-<td>48</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT UNTOLD 200ML</td>
-<td>ARMAF</td>
-<td>78</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT URBAN ELIXIR 105ML</td>
-<td>ARMAF</td>
-<td>47</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT ICONIC BLUE 105ML</td>
-<td>ARMAF</td>
-<td>48</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT OUD PARFUM 105ML</td>
-<td>ARMAF</td>
-<td>65</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT IMPERIALE 105 ML</td>
-<td>ARMAF</td>
-<td>46</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT WOMAN 105ML</td>
-<td>ARMAF</td>
-<td>38</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT SILLAGE 105ML</td>
-<td>ARMAF</td>
-<td>45</td>
-</tr>
-<tr>
-<td>CLUB DE NUIT PRECIEUX 55ML</td>
-<td>ARMAF</td>
-<td>62</td>
-</tr>
-<tr>
-<td>DUBAI NIGHTS MIDNIGHT 100ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>DUBAI NIGHTS UMBRA 100ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>ETER DESERT NIGHT EDP 100ML</td>
-<td>ARMAF</td>
-<td>47</td>
-</tr>
-<tr>
-<td>F ETER DESERT STAR EDP 100ML</td>
-<td>ARMAF</td>
-<td>45</td>
-</tr>
-<tr>
-<td>ETER PERFUME OASIS EDP 100ML</td>
-<td>ARMAF</td>
-<td>45</td>
-</tr>
-<tr>
-<td>ETER DESERT ROSE EDP 100ML</td>
-<td>ARMAF</td>
-<td>45</td>
-</tr>
-<tr>
-<td>INFINITY GOLD 105ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>INFINITY SILVER 105ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>ODYSSEY HOMME BLACK 100ML</td>
-<td>ARMAF</td>
-<td>39</td>
-</tr>
-<tr>
-<td>ODYSSEY HOME BLACK 200ML</td>
-<td>ARMAF</td>
-<td>55</td>
-</tr>
-<tr>
-<td>ODYSSEY SPECTRA 100ML</td>
-<td>ARMAF</td>
-<td>46</td>
-</tr>
-<tr>
-<td>ODDYSEY CHOCOLATE 100ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>ODDYSEY TYRANT 100ML</td>
-<td>ARMAF</td>
-<td>45</td>
-</tr>
-<tr>
-<td>ODYSSEY HOMME WHITE 100ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>ODYSSEY LIMONI 100ML</td>
-<td>ARMAF</td>
-<td>50</td>
-</tr>
-<tr>
-<td>ODYSSEY AOUD</td>
-<td>ARMAF</td>
-<td>39</td>
-</tr>
-<tr>
-<td>ODYSSEY AQUA 100ML</td>
-<td>ARMAF</td>
-<td>44</td>
-</tr>
-<tr>
-<td>ODYSSEY CANDEE 100ML</td>
-<td>ARMAF</td>
-<td>48</td>
-</tr>
-<tr>
-<td>ODYSSEY MEGA 100ML</td>
-<td>ARMAF</td>
-<td>44</td>
-</tr>
-<tr>
-<td>ODYSSEY WILD ONE 100ML</td>
-<td>ARMAF</td>
-<td>36</td>
-</tr>
-<tr>
-<td>ODYSSEY MANDARIN SKY 100ML</td>
-<td>ARMAF</td>
-<td>46</td>
-</tr>
-<tr>
-<td>EMIR VOUX VIOLETTE 100ML</td>
-<td>PARIS CORNER</td>
-<td>44</td>
-</tr>
-<tr>
-<td>EMIR VOUX TURQUOISE 100ML</td>
-<td>PARIS CORNER</td>
-<td>46</td>
-</tr>
-<tr>
-<td>KHAIR CONFECTION</td>
-<td>PARIS CORNER</td>
-<td>43</td>
-</tr>
-<tr>
-<td>KHAIR PISTACHIO</td>
-<td>PARIS CORNER</td>
-<td>43</td>
-</tr>
-<tr>
-<td>OPHIDIAN MANGO BLISS 100ML</td>
-<td>PARIS CORNER</td>
-<td>48</td>
-</tr>
-<tr>
-<td>OPHIDIAN BLACK CHERRY 100ML</td>
-<td>PARIS CORNER</td>
-<td>48</td>
-</tr>
-<tr>
-<td>PRODIGY 100ML</td>
-<td>PARIS CORNER</td>
-<td>48</td>
-</tr>
-<tr>
-<td>PRODIGY NOIR 100ML</td>
-<td>PARIS CORNER</td>
-<td>48</td>
-</tr>
-<tr>
-<td>RIFAAQAT 85ML</td>
-<td>PARIS CORNER</td>
-<td>42</td>
-</tr>
-<tr>
-<td>RIFAAQAT ADORN 85 ML</td>
-<td>PARIS CORNER</td>
-<td>42</td>
-</tr>
-<tr>
-<td>TASKEEN LACTEA DIVINA</td>
-<td>PARIS CORNER</td>
-<td>42</td>
-</tr>
-<tr>
-<td>HAWAS FOR HER 100ML</td>
-<td>RASASI</td>
-<td>38</td>
-</tr>
-<tr>
-<td>HAWAS FOR HIM 100ML</td>
-<td>RASASI</td>
-<td>36</td>
-</tr>
-<tr>
-<td>HAWAS ICE 100ML</td>
-<td>RASASI</td>
-<td>41</td>
-</tr>
-<tr>
-<td>HAWAS FIRE 100ML</td>
-<td>RASASI</td>
-<td>68</td>
-</tr>
-<tr>
-<td>HAWAS ELIXIR 100ML</td>
-<td>RASASI</td>
-<td>70</td>
-</tr>
-<tr>
-<td>HAWAS BLACK 100ML</td>
-<td>RASASI</td>
-<td>47</td>
-</tr>
-<tr>
-<td>FATIMA 100 ML</td>
-<td>ZIMAYA</td>
-<td>32</td>
-</tr>
-<tr>
-<td>OUD IS GREAT 100ML</td>
-<td>ZIMAYA</td>
-<td>23</td>
-</tr>
-<tr>
-<td>TIRAMISU CARAMEL 100ML</td>
-<td>ZIMAYA</td>
-<td>51</td>
-</tr>
-<tr>
-<td>TIRAMISU COCO 100ML</td>
-<td>ZIMAYA</td>
-<td>51</td>
-</tr>
-<tr>
-<td>NITRO WHITE</td>
-<td>DUMONT</td>
-<td>41</td>
-</tr>
-<tr>
-<td>NITRO RED</td>
-<td>DUMONT</td>
-<td>41</td>
-</tr>
-<tr>
-<td>RAYHAAN ELIXIR 100ML</td>
-<td>RAYHAAN</td>
-<td>40</td>
-</tr>
-<tr>
-<td>JOHN G HOMME AMAZE</td>
-<td>FRAGRANCE WORLD</td>
-<td>27</td>
-</tr>
-<tr>
-<td>TUBEES CHERRY LUXE 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>UBEES STRAWBERRY CHEESECAKE 50M</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES COOKIES Y CREAM 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES BERRY BLAST 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES BUBBLE GUM 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES CANDY POP 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES CHOCOLATE FUDGE 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES COTTON CANDY 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES UNICORN VAINILLA 50ML</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>TUBEES DREAMY TREATS</td>
-<td>KIDS</td>
-<td>26</td>
-</tr>
-<tr>
-<td>MAYAR ROSE</td>
-<td>BODY SPLASH ARABES (150ML)</td>
-<td>29</td>
-</tr>
-<tr>
-<td>SUBLIME</td>
-<td>BODY SPLASH ARABES (150ML)</td>
-<td>29</td>
-</tr>
-<tr>
-<td>FAKHAR ROSE</td>
-<td>BODY SPLASH ARABES (150ML)</td>
-<td>40</td>
-</tr>
-<tr>
-<td>HAYA</td>
-<td>BODY SPLASH ARABES (150ML)</td>
-<td>29</td>
-</tr>
-<tr>
-<td>YARA ROSA</td>
-<td>BODY SPLASH ARABES (150ML)</td>
-<td>29</td>
-</tr>
-<tr>
-<td>YARA TOUS</td>
-<td>BODY SPLASH ARABES (150ML)</td>
-<td>29</td>
-</tr>
-<tr>
-<td>5 UNIDADES SURTIDAS</td>
-<td>SPRAYS ARABES (200 ML)</td>
-<td>9</td>
-</tr>
-<tr>
-<td>8 UNIDADES SURTIDAS</td>
-<td>SPRAYS ARABES (200 ML)</td>
-<td>6.5</td>
-</tr>
-<tr>
-<td>10 UNIDADES SURTIDAS</td>
-<td>SPRAYS ARABES (200 ML)</td>
-<td>8</td>
-</tr>
-<tr>
-<td>BOLSAS ARABES</td>
-<td>OTROS</td>
-<td>2</td>
-</tr>
-<tr>
-<td>MBIENTADORES ARABES *NUEVOS* 450</td>
-<td>OTROS</td>
-<td>18</td>
-</tr>
-<tr>
-<td>STRONGER WITH YOU INTENSELY EDP 100</td>
-<td>ARMANI</td>
-<td>114</td>
-</tr>
-<tr>
-<td>POUR HOMME MAS EDT 100ML</td>
-<td>AZZARO</td>
-<td>45</td>
-</tr>
-<tr>
-<td>212 VIP ROSE FEM 80ML</td>
-<td>CAROLINA HERRERA</td>
-<td>81</td>
-</tr>
-<tr>
-<td>BAD BOY LE PARFUM MASC 100ML</td>
-<td>CAROLINA HERRERA</td>
-<td>86</td>
-</tr>
-<tr>
-<td>GOOD GIRL 100ML</td>
-<td>CAROLINA HERRERA</td>
-<td>97</td>
-</tr>
-<tr>
-<td>212 MEN NYC 100ML</td>
-<td>CAROLINA HERRERA</td>
-<td>80</td>
-</tr>
-<tr>
-<td>LE MALE LE PARFUM EDP 125ML</td>
-<td>PAUL GALTIER</td>
-<td>93</td>
-</tr>
-<tr>
-<td>LE MALE ELIXIR PARFUM 125ML</td>
-<td>PAUL GALTIER</td>
-<td>123</td>
-</tr>
-<tr>
-<td>LE MALE ELIXIR PARFUM 200ML</td>
-<td>PAUL GALTIER</td>
-<td>150</td>
-</tr>
-<tr>
-<td>LE BEAU EDP INTENSE 125ML</td>
-<td>PAUL GALTIER</td>
-<td>97</td>
-</tr>
-<tr>
-<td>LE BEAU MAS EDT 125ML</td>
-<td>PAUL GALTIER</td>
-<td>90</td>
-</tr>
-<tr>
-<td>A BELLE LE PARFUM INTENSE EDP 100M</td>
-<td>PAUL GALTIER</td>
-<td>97</td>
-</tr>
-<tr>
-<td>SCANDAL LE PARFUM MASC 100ML</td>
-<td>PAUL GALTIER</td>
-<td>100</td>
-</tr>
-<tr>
-<td>SCANDAL MASC EDT 100ML</td>
-<td>PAUL GALTIER</td>
-<td>82</td>
-</tr>
-<tr>
-<td>SCANDAL FEM EDP 80ML</td>
-<td>PAUL GALTIER</td>
-<td>91</td>
-</tr>
-<tr>
-<td>MISS DIOR FEM EDP 100ML</td>
-<td>DIOR</td>
-<td>120</td>
-</tr>
-<tr>
-<td>SAUVAGE EDP 100ML</td>
-<td>DIOR</td>
-<td>118</td>
-</tr>
-<tr>
-<td>LA VIDA ES BELLA  100ML</td>
-<td>LANCOME</td>
-<td>101</td>
-</tr>
-<tr>
-<td>TOY BOY MAS EDP 100ML</td>
-<td>MOSCHINO</td>
-<td>62</td>
-</tr>
-<tr>
-<td>TOY 2 EDP 100ML</td>
-<td>MOSCHINO</td>
-<td>70</td>
-</tr>
-<tr>
-<td>ONE MILLION MASC PARFUM 100ML</td>
-<td>PACO RABANNE</td>
-<td>88</td>
-</tr>
-<tr>
-<td>ONE MILLION EDT 100ML</td>
-<td>PACO RABANNE</td>
-<td>67</td>
-</tr>
-<tr>
-<td>INVICTUS EDT 100ML</td>
-<td>PACO RABANNE</td>
-<td>75</td>
-</tr>
-<tr>
-<td>XS PURE MAS EDT 100ML</td>
-<td>PACO RABANNE</td>
-<td>90</td>
-</tr>
-<tr>
-<td>PHANTOM MAS 100ML</td>
-<td>PACO RABANNE</td>
-<td>85</td>
-</tr>
-<tr>
-<td>VERSACE EROS FLAME MAS EDP 100ML</td>
-<td>VERSACE EROS</td>
-<td>80</td>
-</tr>
-<tr>
-<td>VERSACE EROS PARFUM 100ML</td>
-<td>VERSACE EROS</td>
-<td>100</td>
-</tr>
-<tr>
-<td>VERSACE EROS MAS EDP 100ML</td>
-<td>VERSACE EROS</td>
-<td>76</td>
-</tr>
-<tr>
-<td>ERBA PURA 50ML</td>
-<td>LINEA  XERJOFF</td>
-<td>170</td>
-</tr>
-<tr>
-<td>ERBA PURA 100 ML</td>
-<td>LINEA  XERJOFF</td>
-<td>270</td>
-</tr>
-<tr>
-<td>OIL ESSENCE 50 ML</td>
-<td>KARSELL</td>
-<td>13</td>
-</tr>
-<tr>
-<td>SHAMPOO</td>
-<td>KARSELL</td>
-<td>12</td>
-</tr>
-<tr>
-<td>ACONDICIONADOR</td>
-<td>KARSELL</td>
-<td>12</td>
-</tr>
-<tr>
-<td>HAIR STILLING WAX 100G (CERA)</td>
-<td>KARSELL</td>
-<td>15</td>
-</tr>
-<tr>
-<td>KIT ACEITE+MASCARILLA</td>
-<td>KARSELL</td>
-<td>38</td>
-</tr>
-<tr>
-<td>MASCARILLAS COLAGEN</td>
-<td>KARSELL</td>
-<td>18</td>
-</tr>
-<tr>
-<td>MATIZADOR VIOLETA</td>
-<td>KARSELL</td>
-<td>20</td>
-</tr>
-<tr>
-<td>KARSEELL BNC ARGAN OIL CD 500ML</td>
-<td>KARSELL</td>
-<td>18</td>
-</tr>
-<tr>
-<td>KARSEELL BNC ARGAN OIL SH 500ML</td>
-<td>KARSELL</td>
-<td>18</td>
-</tr>
-<tr>
-<td>KARSEELL BNC KERATIN MA 500ML</td>
-<td>KARSELL</td>
-<td>24</td>
-</tr>
-<tr>
-<td>KARSEELL LEAVE-IN SP 200ML</td>
-<td>KARSELL</td>
-<td>18</td>
-</tr>
-<tr>
-<td>BARE VAINILLA</td>
-<td>BODY LOTION DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>COCONUT PASSION</td>
-<td>BODY LOTION DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>PURE SEDUCTION</td>
-<td>BODY LOTION DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>LOVE SPELL</td>
-<td>BODY LOTION DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>TEMPLATION</td>
-<td>BODY LOTION DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>AQUA KISS</td>
-<td>BODY LOTION DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>VELVET PETALS</td>
-<td>BODY LOTION DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>VAINILLA SHIMMER</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>VELVET PETALS SHIMMER</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>PURE SEDUCT SHIMMER</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>LOVE SPELL SHIMMER</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>LOVE SPELL</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>TEMPLATION</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>STRAWBERRY/CHAMP</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>RUSH</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>AMBER ROMANCE</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>ROMANTIC</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>AQUA KISS</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>COCONUT</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>VELVET PETALS</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>PURE SEDUCTION</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>BARE VAINILLA</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>MIDNIGHT BLOOM</td>
-<td>BODY SPLASH DE VICTORIA SECRET</td>
-<td>22</td>
-</tr>
-<tr>
-<td>PURE SEDUCTION SH</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>BARE VAINILLA SH</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>VELVET PETALS SH</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>LOVE SPELL SH</td>
-<td>SHIMMER</td>
-<td>23</td>
-</tr>
-<tr>
-<td>REVLON LIMITLESS MATTE</td>
-<td>MAQUILLAJES</td>
-<td>15</td>
-</tr>
-<tr>
-<td>REVLON LIMITLESS MATTE</td>
-<td>MAQUILLAJES</td>
-<td>15</td>
-</tr>
-<tr>
-<td>REVLON LIMITLESS MATTE</td>
-<td>MAQUILLAJES</td>
-<td>15</td>
-</tr>
-<tr>
-<td>REVLON LIMITLESS MATTE</td>
-<td>MAQUILLAJES</td>
-<td>15</td>
-</tr>
-<tr>
-<td>LIP GLOSS 8ML</td>
-<td>LIP GLOSS</td>
-<td>13</td>
-</tr>
-<tr>
-<td>LIP GLOSS 8ML</td>
-<td>LIP GLOSS</td>
-<td>13</td>
-</tr>
-<tr>
-<td>LIP GLOSS 8ML</td>
-<td>LIP GLOSS</td>
-<td>13</td>
-</tr>
-<tr>
-<td>LIP GLOSS 8ML</td>
-<td>LIP GLOSS</td>
-<td>13</td>
-</tr>
-<tr>
-<td>REVLON COLORSTAY SHARP LINE</td>
-<td>DELINEADORES</td>
-<td>15</td>
-</tr>
-<tr>
-<td>REVLON COLORSTAY EYE LINER</td>
-<td>DELINEADORES</td>
-<td>12</td>
-</tr>
-<tr>
-<td>COLORSTAY XTENS LEN MA</td>
-<td>RIMMEL (mascara de pestañanas)</td>
-<td>12</td>
-</tr>
-<tr>
-<td>REVLON COLORSTAY CORRECTOR</td>
-<td>CORRECTOR</td>
-<td>15</td>
-</tr>
-<tr>
-<td>REVLON PHOTOREADY CORRECTOR</td>
-<td>CORRECTOR</td>
-<td>15</td>
-</tr>
-<tr>
-<td>REVLON PHOTOREADY CORRECTOR 00</td>
-<td>CORRECTOR</td>
-<td>15</td>
-</tr>
-<tr>
-<td>REVLON COLORSTAY BASE 30ML</td>
-<td>BASE</td>
-<td>17</td>
-</tr>
-<tr>
-<td>REVLON COLORSTAY BASE 30ML</td>
-<td>BASE</td>
-<td>17</td>
-</tr>
-<tr>
-<td>REVLON COLORSTAY BASE 30ML</td>
-<td>BASE</td>
-<td>17</td>
-</tr>
-<tr>
-<td>REVLON COLORSTAY BASE 30ML</td>
-<td>BASE</td>
-<td>17</td>
-</tr>
+<tr><td>9 AM BLANCO</td><td>AFNAN</td><td class="price-usd">$36,00</td></tr>
+<tr><td>9AM DIVE 100ML</td><td>AFNAN</td><td class="price-usd">$34,00</td></tr>
+<tr><td>9AM PINK 100ML</td><td>AFNAN</td><td class="price-usd">$34,50</td></tr>
+<tr><td>9PM 100ML</td><td>AFNAN</td><td class="price-usd">$32,50</td></tr>
+<tr><td>9PM ELIXIR</td><td>AFNAN</td><td class="price-usd">$42,00</td></tr>
+<tr><td>9PM FEM (VIOLETA)</td><td>AFNAN</td><td class="price-usd">$35,00</td></tr>
+<tr><td>9PM REBEL 100ML</td><td>AFNAN</td><td class="price-usd">$38,00</td></tr>
+<tr><td>HISTORIC DORIA 100ML</td><td>AFNAN</td><td class="price-usd">$36,00</td></tr>
+<tr><td>HISTORIC OLMEDA 100ML</td><td>AFNAN</td><td class="price-usd">$36,50</td></tr>
+<tr><td>HISTORIC SAHARA 100ML</td><td>AFNAN</td><td class="price-usd">$46,00</td></tr>
+<tr><td>HUNTER KILLER</td><td>AFNAN</td><td class="price-usd">$47,00</td></tr>
+<tr><td>PURE MUSK</td><td>AFNAN</td><td class="price-usd">$27,50</td></tr>
+<tr><td>SUPREMACY  SILVER 150ML</td><td>AFNAN</td><td class="price-usd">$32,00</td></tr>
+<tr><td>SUPREMACY  SILVER POUR HOMME</td><td>AFNAN</td><td class="price-usd">$33,00</td></tr>
+<tr><td>SUPREMACY COLLECTORS EDITION 100ML</td><td>AFNAN</td><td class="price-usd">$46,00</td></tr>
+<tr><td>SUPREMACY GALA PINK</td><td>AFNAN</td><td class="price-usd">$41,00</td></tr>
+<tr><td>SUPREMACY GOLD 100ML</td><td>AFNAN</td><td class="price-usd">$34,00</td></tr>
+<tr><td>SUPREMACY IN HEAVEN</td><td>AFNAN</td><td class="price-usd">$36,00</td></tr>
+<tr><td>SUPREMACY IN OUD</td><td>AFNAN</td><td class="price-usd">$36,50</td></tr>
+<tr><td>SUPREMACY INCENSE</td><td>AFNAN</td><td class="price-usd">$36,00</td></tr>
+<tr><td>SUPREMACY NOIR 100ML.</td><td>AFNAN</td><td class="price-usd">$32,00</td></tr>
+<tr><td>SUPREMACY NOT ONLY INTENSE 100ML</td><td>AFNAN</td><td class="price-usd">$46,00</td></tr>
+<tr><td>SUPREMACY POUR FEMME EDP</td><td>AFNAN</td><td class="price-usd">$33,00</td></tr>
+<tr><td>SUPREMACY TAPIS ROUGE</td><td>AFNAN</td><td class="price-usd">$32,00</td></tr>
+<tr><td>TURATHI BLUE 90ML</td><td>AFNAN</td><td class="price-usd">$38,00</td></tr>
+<tr><td>TURATHI BROWN 90ML</td><td>AFNAN</td><td class="price-usd">$35,50</td></tr>
+<tr><td>TURATHI ELECTRIC EDP 90ML</td><td>AFNAN</td><td class="price-usd">$42,00</td></tr>
+<tr><td>TURATHI PURPLE EDP 85ML</td><td>AFNAN</td><td class="price-usd">$38,00</td></tr>
+<tr><td>TURATHI RED 90ML</td><td>AFNAN</td><td class="price-usd">$36,00</td></tr>
+<tr><td>AMBER OUD AQUA DUBAI 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$47,25</td></tr>
+<tr><td>AMBER OUD BLEU EDITION 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$49,50</td></tr>
+<tr><td>AMBER OUD CARBON EDITION 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$52,00</td></tr>
+<tr><td>AMBER OUD DUBAI NIGHT 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$46,90</td></tr>
+<tr><td>AMBER OUD EXTREME GOLD EDITION PARFUM 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$55,50</td></tr>
+<tr><td>AMBER OUD GOLD 999.9 DUBAI EDITION 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$57,50</td></tr>
+<tr><td>AMBER OUD GOLD EDITION 120 ML</td><td>AL HARAMAIN</td><td class="price-usd">$51,00</td></tr>
+<tr><td>AMBER OUD ROUGE 120ML</td><td>AL HARAMAIN</td><td class="price-usd">$66,00</td></tr>
+<tr><td>AMBER OUD RUBY EDITION 120ML</td><td>AL HARAMAIN</td><td class="price-usd">$58,00</td></tr>
+<tr><td>AMBER OUD ULTRA VIOLET 120ML</td><td>AL HARAMAIN</td><td class="price-usd">$62,00</td></tr>
+<tr><td>AMBER OUD WHITE 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$49,50</td></tr>
+<tr><td>AVENTURE CIEL MASC 100</td><td>AL HARAMAIN</td><td class="price-usd">$40,50</td></tr>
+<tr><td>AVENTURE FEM  100ML</td><td>AL HARAMAIN</td><td class="price-usd">$35,00</td></tr>
+<tr><td>AVENTURE GRAPEFRUIT 100</td><td>AL HARAMAIN</td><td class="price-usd">$37,00</td></tr>
+<tr><td>AVENTURE INTENSE 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$38,00</td></tr>
+<tr><td>AVENTURE IRIS 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$40,00</td></tr>
+<tr><td>AVENTURE KNIGHT 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$40,00</td></tr>
+<tr><td>AVENTURE MASC 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$38,00</td></tr>
+<tr><td>AVENTURE ROSE 100ML</td><td>AL HARAMAIN</td><td class="price-usd">$37,00</td></tr>
+<tr><td>ORIENTICA AMBER NOIR 80ML</td><td>AL HARAMAIN</td><td class="price-usd">$65,00</td></tr>
+<tr><td>ORIENTICA AMBER ROUGE 80 ML</td><td>AL HARAMAIN</td><td class="price-usd">$61,00</td></tr>
+<tr><td>ORIENTICA DANIA 80ML</td><td>AL HARAMAIN</td><td class="price-usd">$74,00</td></tr>
+<tr><td>ORIENTICA EXCLUSIVE AZURE 80ML</td><td>AL HARAMAIN</td><td class="price-usd">$71,00</td></tr>
+<tr><td>ORIENTICA ROYAL AMBER GOLD 80ML</td><td>AL HARAMAIN</td><td class="price-usd">$61,00</td></tr>
+<tr><td>ORIENTICA ROYAL BLEU 80 ML</td><td>AL HARAMAIN</td><td class="price-usd">$64,00</td></tr>
+<tr><td>BEACH PARTY 100ML</td><td>ARMAF</td><td class="price-usd">$46,00</td></tr>
+<tr><td>BLUE SKY 105ML</td><td>ARMAF</td><td class="price-usd">$40,00</td></tr>
+<tr><td>CHECKMATE KING 100ML</td><td>ARMAF</td><td class="price-usd">$52,00</td></tr>
+<tr><td>CHECKMATE QUEEN 100ML</td><td>ARMAF</td><td class="price-usd">$42,00</td></tr>
+<tr><td>CLLUB DE NUIT LIONHEART MAN EDP 105ML</td><td>ARMAF</td><td class="price-usd">$46,00</td></tr>
+<tr><td>CLUB DE NUIT ICONIC BLUE 105ML</td><td>ARMAF</td><td class="price-usd">$42,00</td></tr>
+<tr><td>CLUB DE NUIT IMPERIALE 105 ML</td><td>ARMAF</td><td class="price-usd">$40,50</td></tr>
+<tr><td>CLUB DE NUIT INTENSE MAN 105 ML</td><td>ARMAF</td><td class="price-usd">$35,65</td></tr>
+<tr><td>CLUB DE NUIT INTENSE MAN EDP 200 ML</td><td>ARMAF</td><td class="price-usd">$50,00</td></tr>
+<tr><td>CLUB DE NUIT INTENSE MAN PARFUM 105 ML</td><td>ARMAF</td><td class="price-usd">$57,00</td></tr>
+<tr><td>CLUB DE NUIT INTENSE WOMAN 105ML</td><td>ARMAF</td><td class="price-usd">$34,00</td></tr>
+<tr><td>CLUB DE NUIT LIONHEART WOMAN 100ML</td><td>ARMAF</td><td class="price-usd">$39,00</td></tr>
+<tr><td>CLUB DE NUIT MALEKA EDP 105ML</td><td>ARMAF</td><td class="price-usd">$42,00</td></tr>
+<tr><td>CLUB DE NUIT MAN EDT 105ML</td><td>ARMAF</td><td class="price-usd">$36,00</td></tr>
+<tr><td>CLUB DE NUIT MILESTONE 105ML</td><td>ARMAF</td><td class="price-usd">$35,00</td></tr>
+<tr><td>CLUB DE NUIT OUD PARFUM 105ML</td><td>ARMAF</td><td class="price-usd">$50,50</td></tr>
+<tr><td>CLUB DE NUIT PRECIEUX 55ML</td><td>ARMAF</td><td class="price-usd">$47,00</td></tr>
+<tr><td>CLUB DE NUIT SILLAGE 105ML</td><td>ARMAF</td><td class="price-usd">$37,00</td></tr>
+<tr><td>CLUB DE NUIT UNTOLD 105ML</td><td>ARMAF</td><td class="price-usd">$51,00</td></tr>
+<tr><td>CLUB DE NUIT URBAN MAN EDP 105ML</td><td>ARMAF</td><td class="price-usd">$33,00</td></tr>
+<tr><td>CLUB DE NUIT URBAN MAN ELIXIR 105ML</td><td>ARMAF</td><td class="price-usd">$37,00</td></tr>
+<tr><td>CLUB DE NUIT WOMAN 105ML</td><td>ARMAF</td><td class="price-usd">$31,50</td></tr>
+<tr><td>CLUB DE NUIT WOMAN 200ML</td><td>ARMAF</td><td class="price-usd">$41,00</td></tr>
+<tr><td>CONNOISSEUR 100ML</td><td>ARMAF</td><td class="price-usd">$42,00</td></tr>
+<tr><td>CONNOISSEUR FEM 100ML</td><td>ARMAF</td><td class="price-usd">$42,00</td></tr>
+<tr><td>ETER ARABIAN SKY 100ML</td><td>ARMAF</td><td class="price-usd">$41,00</td></tr>
+<tr><td>INFINITY GOLD 100ML</td><td>ARMAF</td><td class="price-usd">$47,00</td></tr>
+<tr><td>INFINITY SILVER 105ML</td><td>ARMAF</td><td class="price-usd">$45,50</td></tr>
+<tr><td>ISLAND BLISS 100ML</td><td>ARMAF</td><td class="price-usd">$43,00</td></tr>
+<tr><td>MISS CHIC 100ML</td><td>ARMAF</td><td class="price-usd">$45,00</td></tr>
+<tr><td>MISS MAGNIFIQ 100ML</td><td>ARMAF</td><td class="price-usd">$39,50</td></tr>
+<tr><td>MISS VOCE VIVA 100ML</td><td>ARMAF</td><td class="price-usd">$43,25</td></tr>
+<tr><td>ODDYSEY DUBAI CHOCOLAT 100ML</td><td>ARMAF</td><td class="price-usd">$28,00</td></tr>
+<tr><td>ODDYSEY TYRANT 100ML</td><td>ARMAF</td><td class="price-usd">$29,20</td></tr>
+<tr><td>ODYSSEY AOUD 100ML</td><td>ARMAF</td><td class="price-usd">$30,50</td></tr>
+<tr><td>ODYSSEY AQUA 100ML</td><td>ARMAF</td><td class="price-usd">$30,00</td></tr>
+<tr><td>ODYSSEY CANDEE 100ML</td><td>ARMAF</td><td class="price-usd">$29,50</td></tr>
+<tr><td>ODYSSEY EAU DE MONTAGNE 100ML</td><td>ARMAF</td><td class="price-usd">$39,50</td></tr>
+<tr><td>ODYSSEY HOME BLACK 200ML</td><td>ARMAF</td><td class="price-usd">$47,00</td></tr>
+<tr><td>ODYSSEY HOMME BLACK 100ML</td><td>ARMAF</td><td class="price-usd">$29,50</td></tr>
+<tr><td>ODYSSEY HOMME WHITE 100ML</td><td>ARMAF</td><td class="price-usd">$30,00</td></tr>
+<tr><td>ODYSSEY LIMONI 100ML</td><td>ARMAF</td><td class="price-usd">$29,00</td></tr>
+<tr><td>ODYSSEY MANDARIN SKY 100ML</td><td>ARMAF</td><td class="price-usd">$32,00</td></tr>
+<tr><td>ODYSSEY MARSHMALLOW 100ML</td><td>ARMAF</td><td class="price-usd">$43,00</td></tr>
+<tr><td>ODYSSEY MEGA 100ML</td><td>ARMAF</td><td class="price-usd">$29,50</td></tr>
+<tr><td>ODYSSEY REVOLUTION ULTRA 100ML</td><td>ARMAF</td><td class="price-usd">$39,50</td></tr>
+<tr><td>ODYSSEY SPECTRA 100ML</td><td>ARMAF</td><td class="price-usd">$29,25</td></tr>
+<tr><td>ODYSSEY WILD ONE 100ML</td><td>ARMAF</td><td class="price-usd">$29,50</td></tr>
+<tr><td>RED SKY 105ML</td><td>ARMAF</td><td class="price-usd">$40,00</td></tr>
+<tr><td>TAG-HIM POUR HOMME 100ML</td><td>ARMAF</td><td class="price-usd">$33,00</td></tr>
+<tr><td>TAG-HIM PRESTIGE EDITION 100ML</td><td>ARMAF</td><td class="price-usd">$33,00</td></tr>
+<tr><td>YUM YUM 100ML</td><td>ARMAF</td><td class="price-usd">$46,00</td></tr>
+<tr><td>BHARARA BLEU 100ML</td><td>BHARARA</td><td class="price-usd">$47,00</td></tr>
+<tr><td>BHARARA CHOCOLATE</td><td>BHARARA</td><td class="price-usd">$51,00</td></tr>
+<tr><td>BHARARA DOBLE BLEU 100ML</td><td>BHARARA</td><td class="price-usd">$47,00</td></tr>
+<tr><td>BHARARA DON 100ML</td><td>BHARARA</td><td class="price-usd">$59,00</td></tr>
+<tr><td>BHARARA ELEGANCE 100ML</td><td>BHARARA</td><td class="price-usd">$62,00</td></tr>
+<tr><td>BHARARA ENIGMA 100ML</td><td>BHARARA</td><td class="price-usd">$62,00</td></tr>
+<tr><td>BHARARA ESSENCE 100ML</td><td>BHARARA</td><td class="price-usd">$62,00</td></tr>
+<tr><td>BHARARA GODDESS</td><td>BHARARA</td><td class="price-usd">$48,50</td></tr>
+<tr><td>BHARARA KING EDP 100ML</td><td>BHARARA</td><td class="price-usd">$52,00</td></tr>
+<tr><td>BHARARA KING EDP 150ML</td><td>BHARARA</td><td class="price-usd">$57,50</td></tr>
+<tr><td>BHARARA KING EDP 200ML</td><td>BHARARA</td><td class="price-usd">$76,50</td></tr>
+<tr><td>BHARARA KING GOLD EDITION 100ML</td><td>BHARARA</td><td class="price-usd">$65,00</td></tr>
+<tr><td>BHARARA KING PARFUM 100ML</td><td>BHARARA</td><td class="price-usd">$52,00</td></tr>
+<tr><td>BHARARA NICHE 100ML</td><td>BHARARA</td><td class="price-usd">$48,00</td></tr>
+<tr><td>BHARARA NICHE PARFUM 100ML</td><td>BHARARA</td><td class="price-usd">$47,00</td></tr>
+<tr><td>BHARARA ONYX 100ML</td><td>BHARARA</td><td class="price-usd">$53,00</td></tr>
+<tr><td>BHARARA PEACE PARFUM 100ML</td><td>BHARARA</td><td class="price-usd">$70,00</td></tr>
+<tr><td>BHARARA PHARAOH RAMESSES I 100ML</td><td>BHARARA</td><td class="price-usd">$79,00</td></tr>
+<tr><td>BHARARA PHARAOH RAMESSES II 100ML</td><td>BHARARA</td><td class="price-usd">$81,00</td></tr>
+<tr><td>BHARARA PLACID 100ML</td><td>BHARARA</td><td class="price-usd">$69,00</td></tr>
+<tr><td>BHARARA QUEEN 100ML</td><td>BHARARA</td><td class="price-usd">$48,50</td></tr>
+<tr><td>BHARARA ROSE 100ML</td><td>BHARARA</td><td class="price-usd">$49,50</td></tr>
+<tr><td>BHARARA SCARLET</td><td>BHARARA</td><td class="price-usd">$54,00</td></tr>
+<tr><td>BHARARA VIKING BEIRUT 100ML</td><td>BHARARA</td><td class="price-usd">$51,00</td></tr>
+<tr><td>BHARARA VIKING CAIRO 100ML</td><td>BHARARA</td><td class="price-usd">$41,00</td></tr>
+<tr><td>BHARARA VIKING DUBAI 100ML</td><td>BHARARA</td><td class="price-usd">$55,00</td></tr>
+<tr><td>BHARARA VIKING KASHMIR 100ML</td><td>BHARARA</td><td class="price-usd">$52,00</td></tr>
+<tr><td>BHARARA VIKING RIO 100ML</td><td>BHARARA</td><td class="price-usd">$52,00</td></tr>
+<tr><td>AETHER EXTRAIT EDP 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$48,00</td></tr>
+<tr><td>AZZURE AOUD 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$40,50</td></tr>
+<tr><td>COCOA MORADO 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$41,00</td></tr>
+<tr><td>GHOST SPECTRE 80ML</td><td>FRENCH AVENUE</td><td class="price-usd">$42,00</td></tr>
+<tr><td>LIQUID BRUN 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$39,00</td></tr>
+<tr><td>LUSCIOUS 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$46,00</td></tr>
+<tr><td>MERINGUE 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$39,50</td></tr>
+<tr><td>SPECTRE 80ML</td><td>FRENCH AVENUE</td><td class="price-usd">$42,50</td></tr>
+<tr><td>SWEET PARADISE 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$40,00</td></tr>
+<tr><td>VENENO BIANCO 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$58,00</td></tr>
+<tr><td>VENENO BLACK 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$48,00</td></tr>
+<tr><td>VENENO SCARLET 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$53,00</td></tr>
+<tr><td>VULCAN BAIE 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$48,00</td></tr>
+<tr><td>VULCAN FEU 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$48,00</td></tr>
+<tr><td>VULCAN SABLE 100ML</td><td>FRENCH AVENUE</td><td class="price-usd">$40,80</td></tr>
+<tr><td>24 CARAT PURE GOLD 100ML</td><td>LATAFFA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>24 CARAT WHITE GOLD 100ML</td><td>LATAFFA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>ADEEB 80ML</td><td>LATAFFA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>AFEEF 100ML</td><td>LATAFFA</td><td class="price-usd">$37,00</td></tr>
+<tr><td>AFFECTION 100ML</td><td>LATAFFA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>AJAYEB DUBAI 100ML</td><td>LATAFFA</td><td class="price-usd">$22,70</td></tr>
+<tr><td>AJAYEB DUBAI PORTRAIT 100ML</td><td>LATAFFA</td><td class="price-usd">$22,00</td></tr>
+<tr><td>AJWAA 90ML</td><td>LATAFFA</td><td class="price-usd">$30,00</td></tr>
+<tr><td>AJWAD 60ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>AJWAD PINK TO PINK 60 ML</td><td>LATAFFA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>AL NASHAMA</td><td>LATAFFA</td><td class="price-usd">$29,50</td></tr>
+<tr><td>AL NASHAMA CAPRICE 100ML</td><td>LATAFFA</td><td class="price-usd">$28,70</td></tr>
+<tr><td>AL QIAM GOLD 100ML</td><td>LATAFFA</td><td class="price-usd">$30,50</td></tr>
+<tr><td>AL QIAM SILVER 100ML</td><td>LATAFFA</td><td class="price-usd">$30,00</td></tr>
+<tr><td>AMEER AL ARAB BLACK 100ML</td><td>LATAFFA</td><td class="price-usd">$22,50</td></tr>
+<tr><td>AMEER AL ARAB IMPERIUM 100ML</td><td>LATAFFA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>AMEER AL NOBLE EDP</td><td>LATAFFA</td><td class="price-usd">$33,00</td></tr>
+<tr><td>AMEER AL OUDH 100ML</td><td>LATAFFA</td><td class="price-usd">$23,00</td></tr>
+<tr><td>ANA ABIYEDH 100ML</td><td>LATAFFA</td><td class="price-usd">$24,25</td></tr>
+<tr><td>ANA ABIYEDH CORAL 60ML</td><td>LATAFFA</td><td class="price-usd">$23,25</td></tr>
+<tr><td>ANA ABIYEDH LEATHER 60ML</td><td>LATAFFA</td><td class="price-usd">$23,00</td></tr>
+<tr><td>ANA ABIYEDH POUDREE 60ML</td><td>LATAFFA</td><td class="price-usd">$22,90</td></tr>
+<tr><td>ANA ABIYEDH ROUGE 60ML</td><td>LATAFFA</td><td class="price-usd">$23,40</td></tr>
+<tr><td>ANA ABIYEDH SCARLET 60ML</td><td>LATAFFA</td><td class="price-usd">$26,00</td></tr>
+<tr><td>ANGHAM 100 ML</td><td>LATAFFA</td><td class="price-usd">$32,50</td></tr>
+<tr><td>ANSAAM GOLD 100ML</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>ANSAAM SILVER 100ML</td><td>LATAFFA</td><td class="price-usd">$33,00</td></tr>
+<tr><td>ART OF ARABIA I 100ML</td><td>LATAFFA</td><td class="price-usd">$38,00</td></tr>
+<tr><td>ART OF ARABIA II 100ML</td><td>LATAFFA</td><td class="price-usd">$35,50</td></tr>
+<tr><td>ART OF ARABIA III 100ML</td><td>LATAFFA</td><td class="price-usd">$33,50</td></tr>
+<tr><td>ART OF NATURE 100ML</td><td>LATAFFA</td><td class="price-usd">$36,50</td></tr>
+<tr><td>ART OF UNIVERSE 100ML</td><td>LATAFFA</td><td class="price-usd">$40,50</td></tr>
+<tr><td>ART OF WOOD 100ML</td><td>LATAFFA</td><td class="price-usd">$31,00</td></tr>
+<tr><td>ARTISAN ETHNIQUE 100ML</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>ASAD (NEGRO) 100ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>ASAD BOURBON</td><td>LATAFFA</td><td class="price-usd">$31,50</td></tr>
+<tr><td>ASAD ZANZIBAR 100ML</td><td>LATAFFA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>ASDAAF AMEERAT AL ARAB PRIVE ROSE EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$22,50</td></tr>
+<tr><td>ASDAAF AMEERAT AL ARAB ROJO 100ML</td><td>LATAFFA</td><td class="price-usd">$22,50</td></tr>
+<tr><td>BADEE AL OUD AMETHYST</td><td>LATAFFA</td><td class="price-usd">$28,50</td></tr>
+<tr><td>BADEE AL OUD BLUSH NOBLE (ROSA) 100ML</td><td>LATAFFA</td><td class="price-usd">$28,50</td></tr>
+<tr><td>BADEE AL OUD HONOR AND GLORY 100ML</td><td>LATAFFA</td><td class="price-usd">$29,00</td></tr>
+<tr><td>BADEE AL OUD OUD FOR GLORY 100ML</td><td>LATAFFA</td><td class="price-usd">$28,50</td></tr>
+<tr><td>BADEE AL OUD SUBLIME 100ML</td><td>LATAFFA</td><td class="price-usd">$29,00</td></tr>
+<tr><td>BAYAAN 100ML</td><td>LATAFFA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>BLUE SAPPHIRE 100ML</td><td>LATAFFA</td><td class="price-usd">$33,00</td></tr>
+<tr><td>BRIOCHE VANILLE 100ML</td><td>LATAFFA</td><td class="price-usd">$29,50</td></tr>
+<tr><td>CONFIDENTIAL GOLD 100ML</td><td>LATAFFA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>CONFIDENTIAL SILVER 100ML</td><td>LATAFFA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>ECLAIRE BANOFFI EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$38,50</td></tr>
+<tr><td>ECLAIRE EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$31,50</td></tr>
+<tr><td>ECLAIRE PISTACHE EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$38,50</td></tr>
+<tr><td>EJAAZI 100ML</td><td>LATAFFA</td><td class="price-usd">$23,00</td></tr>
+<tr><td>EMAAN 100ML</td><td>LATAFFA</td><td class="price-usd">$27,75</td></tr>
+<tr><td>EMEER 100ML</td><td>LATAFFA</td><td class="price-usd">$41,00</td></tr>
+<tr><td>ETERNAL OUD 100ML</td><td>LATAFFA</td><td class="price-usd">$31,50</td></tr>
+<tr><td>FAKHAR BLACK 100 ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>FAKHAR GOLD 100 ML</td><td>LATAFFA</td><td class="price-usd">$26,75</td></tr>
+<tr><td>FAKHAR PLATIN 100 ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>FAKHAR ROSE 100 ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>HAYA 100ML</td><td>LATAFFA</td><td class="price-usd">$30,00</td></tr>
+<tr><td>HAYAATI AL MALECKY 100ML</td><td>LATAFFA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>HAYAATI FLORENCE 100ML</td><td>LATAFFA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>HAYAATI GOLD ELIXIR 100ML</td><td>LATAFFA</td><td class="price-usd">$22,00</td></tr>
+<tr><td>HAYAATI NEGRO 100ML</td><td>LATAFFA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>HER CONFESSION 100ML</td><td>LATAFFA</td><td class="price-usd">$36,50</td></tr>
+<tr><td>HIS CONFESSION 100ML</td><td>LATAFFA</td><td class="price-usd">$37,50</td></tr>
+<tr><td>ISHQ GOLD 100 ML</td><td>LATAFFA</td><td class="price-usd">$29,75</td></tr>
+<tr><td>ISHQ SILVER 100ML</td><td>LATAFFA</td><td class="price-usd">$31,00</td></tr>
+<tr><td>JASOOR EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$30,75</td></tr>
+<tr><td>KHAMRAH 100ML</td><td>LATAFFA</td><td class="price-usd">$28,25</td></tr>
+<tr><td>KHAMRAH DUKHAN</td><td>LATAFFA</td><td class="price-usd">$28,50</td></tr>
+<tr><td>KHAMRAH QAWHA 100ML</td><td>LATAFFA</td><td class="price-usd">$29,00</td></tr>
+<tr><td>KHANJAR 85ML</td><td>LATAFFA</td><td class="price-usd">$45,50</td></tr>
+<tr><td>LAIL MALEKI 100ML</td><td>LATAFFA</td><td class="price-usd">$23,00</td></tr>
+<tr><td>LAIL MALEKI MOROCCAN BLUE 100ML</td><td>LATAFFA</td><td class="price-usd">$23,00</td></tr>
+<tr><td>LAIL MALEKI OUD EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$22,00</td></tr>
+<tr><td>LEEN</td><td>LATAFFA</td><td class="price-usd">$36,25</td></tr>
+<tr><td>LIAM BLUE SHINE</td><td>LATAFFA</td><td class="price-usd">$30,25</td></tr>
+<tr><td>MAAHIR BLACK 100ML</td><td>LATAFFA</td><td class="price-usd">$28,75</td></tr>
+<tr><td>MAAHIR GOLD 100ML</td><td>LATAFFA</td><td class="price-usd">$29,45</td></tr>
+<tr><td>MAAHIR LEGACY 100ML</td><td>LATAFFA</td><td class="price-usd">$28,75</td></tr>
+<tr><td>MAYAR CHERRY 100ML</td><td>LATAFFA</td><td class="price-usd">$27,70</td></tr>
+<tr><td>MAYAR NATURAL INTENSE 100ML</td><td>LATAFFA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>MAYAR ROSE 100ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>MOHRA EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$23,25</td></tr>
+<tr><td>MOHRA SILKY ROSE 100ML</td><td>LATAFFA</td><td class="price-usd">$23,35</td></tr>
+<tr><td>MUGHAL FORT 100ML</td><td>LATAFFA</td><td class="price-usd">$40,00</td></tr>
+<tr><td>MUSAMAM 100ML</td><td>LATAFFA</td><td class="price-usd">$34,00</td></tr>
+<tr><td>MUSAMAM WHITE 100ML</td><td>LATAFFA</td><td class="price-usd">$41,00</td></tr>
+<tr><td>NAJDIA INTENSE 100ML</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>NEBRAS 100ML</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>NICHE EMARATI ANTIQUE 100ML</td><td>LATAFFA</td><td class="price-usd">$40,00</td></tr>
+<tr><td>OUD MOOD</td><td>LATAFFA</td><td class="price-usd">$22,70</td></tr>
+<tr><td>OUD MOOD ELIXIR</td><td>LATAFFA</td><td class="price-usd">$29,00</td></tr>
+<tr><td>OUD MOOD REMINISCENCE</td><td>LATAFFA</td><td class="price-usd">$29,00</td></tr>
+<tr><td>PRIDE D' ANTIQUITES AUTO 100ML</td><td>LATAFFA</td><td class="price-usd">$35,50</td></tr>
+<tr><td>PRIDE D' ANTIQUITES MOTO 100ML</td><td>LATAFFA</td><td class="price-usd">$35,50</td></tr>
+<tr><td>PRIDE D' ANTIQUITES RELOJ 100ML</td><td>LATAFFA</td><td class="price-usd">$36,00</td></tr>
+<tr><td>PRIDE GHARAM 100ML</td><td>LATAFFA</td><td class="price-usd">$29,00</td></tr>
+<tr><td>PRIDE PISA 100ML</td><td>LATAFFA</td><td class="price-usd">$42,50</td></tr>
+<tr><td>QAED AL FURSAN BLACK 90 ML</td><td>LATAFFA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>QAED AL FURSAN UNLIMITED 90 ML</td><td>LATAFFA</td><td class="price-usd">$21,75</td></tr>
+<tr><td>QAED AL FURSAN UNTAMED 90 ML</td><td>LATAFFA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>QIMMAH MEN 100ML</td><td>LATAFFA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>QIMMAH WOMEN 100ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>RAGHBA FEM 100ML</td><td>LATAFFA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>RAMZ SILVER</td><td>LATAFFA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>RAVE NOW BLACK</td><td>LATAFFA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>RAVE NOW INTENSE BLUE</td><td>LATAFFA</td><td class="price-usd">$30,00</td></tr>
+<tr><td>RAVE NOW ROUGE</td><td>LATAFFA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>RAVE NOW WHITE</td><td>LATAFFA</td><td class="price-usd">$26,00</td></tr>
+<tr><td>RAVE NOW WOMEN ROSA</td><td>LATAFFA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>ROYAL SAPPHIRE</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>SAFEER 100ML</td><td>LATAFFA</td><td class="price-usd">$30,50</td></tr>
+<tr><td>SAKEENA</td><td>LATAFFA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>SEHR 100ML</td><td>LATAFFA</td><td class="price-usd">$33,00</td></tr>
+<tr><td>SHAHEEN GOLD 100 ML</td><td>LATAFFA</td><td class="price-usd">$30,70</td></tr>
+<tr><td>SHAHEEN SILVER 100 ML</td><td>LATAFFA</td><td class="price-usd">$31,00</td></tr>
+<tr><td>SONDOS 100ML</td><td>LATAFFA</td><td class="price-usd">$37,00</td></tr>
+<tr><td>TERIAQ  100ML</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>TERIAQ INTENSE 100ML</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>THARWAH GOLD 100ML</td><td>LATAFFA</td><td class="price-usd">$35,50</td></tr>
+<tr><td>THARWAH SILVER 100ML</td><td>LATAFFA</td><td class="price-usd">$31,00</td></tr>
+<tr><td>THE KINGDOM 100ML</td><td>LATAFFA</td><td class="price-usd">$36,50</td></tr>
+<tr><td>THE KINGDOM FEM 100ML</td><td>LATAFFA</td><td class="price-usd">$28,50</td></tr>
+<tr><td>VELVET ROSE 100ML</td><td>LATAFFA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>VICTORIA  100ML</td><td>LATAFFA</td><td class="price-usd">$31,00</td></tr>
+<tr><td>VINTAGE CASTLE 100ML</td><td>LATAFFA</td><td class="price-usd">$39,00</td></tr>
+<tr><td>VINTAGE RADIO</td><td>LATAFFA</td><td class="price-usd">$32,00</td></tr>
+<tr><td>WAJOOD 100ML</td><td>LATAFFA</td><td class="price-usd">$38,00</td></tr>
+<tr><td>WAZEER EDP 100ML</td><td>LATAFFA</td><td class="price-usd">$37,00</td></tr>
+<tr><td>YARA CANDY 100 ML</td><td>LATAFFA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>YARA MOI 100 ML</td><td>LATAFFA</td><td class="price-usd">$28,90</td></tr>
+<tr><td>YARA ROSA 100 ML</td><td>LATAFFA</td><td class="price-usd">$28,50</td></tr>
+<tr><td>YARA TOUS 100 ML</td><td>LATAFFA</td><td class="price-usd">$26,80</td></tr>
+<tr><td>AL CHANTS TENDERINA 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,50</td></tr>
+<tr><td>ALIVE NOW 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,25</td></tr>
+<tr><td>ALPÍNE HOMME SPORT 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,50</td></tr>
+<tr><td>ATHENA 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>AVANT 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$22,50</td></tr>
+<tr><td>AVANT RUBY 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,50</td></tr>
+<tr><td>AVANT SILK 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$22,70</td></tr>
+<tr><td>B.A.D FEMME 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>BAROQUE ROUGE BLANCO 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>BAROQUE ROUGE EXTRAIT 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>BAROQUE ROUGE EXTREME 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>CANDID EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,95</td></tr>
+<tr><td>CANDID POUR HOMME 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,75</td></tr>
+<tr><td>CANDID TONIGHT EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>CASSIUS</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>COMO MOISELLE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,75</td></tr>
+<tr><td>CORAL BLUSH</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>DARK AOUD 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>DARK DOOR SPORT</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>DECADENT DREAM</td><td>MAISON ALHAMBRA</td><td class="price-usd">$31,25</td></tr>
+<tr><td>DELILAH BLANC 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$34,45</td></tr>
+<tr><td>DELILAH POUR FEMME 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>ETERNAL TOUCH 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>EXCLUSIF TABAC 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$30,00</td></tr>
+<tr><td>GLACIER BELLA 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,90</td></tr>
+<tr><td>GLACIER BOLD EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>GLACIER LE NOIR 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,00</td></tr>
+<tr><td>GLACIER POUR HOMME 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>GLACIER ULTRA EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>HERCULES 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,75</td></tr>
+<tr><td>INFINI ELIXIR 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,35</td></tr>
+<tr><td>INFINI JOYOUS</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>INFINI MUSK</td><td>MAISON ALHAMBRA</td><td class="price-usd">$29,75</td></tr>
+<tr><td>INFINI OUD 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,90</td></tr>
+<tr><td>INFINI ROSE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,90</td></tr>
+<tr><td>JARDIN DE REVE EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,75</td></tr>
+<tr><td>JEAN LOWE FRAICHE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>JEAN LOWE IMMORTAL 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,50</td></tr>
+<tr><td>JEAN LOWE MAITRE EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>JEAN LOWE MATIERE EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>JEAN LOWE NOIR 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$30,00</td></tr>
+<tr><td>JEAN LOWE OMBRE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$33,00</td></tr>
+<tr><td>JORGE DI PROFUMO AQUA 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>JORGE DI PROFUMO BLACK 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>JORGE DI PROFUMO DEEP BLUE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>KISMET FOR WOMEN 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>KISMET MAGIC EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>KISMET MOSCOW EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$171,00</td></tr>
+<tr><td>LA VIVACITE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,65</td></tr>
+<tr><td>LA VIVACITE INTENSA</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>LEONIE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,00</td></tr>
+<tr><td>LEONIE INTENSE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,90</td></tr>
+<tr><td>MONTAIGNE COCO 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>MONTAIGNE VAINILLA 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,00</td></tr>
+<tr><td>NO2 MEN 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>OLIVIA 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,75</td></tr>
+<tr><td>OLIVIA BLOSSOM 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>PACIFIC BLUE 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,00</td></tr>
+<tr><td>PANTHER POUR HOMME</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,50</td></tr>
+<tr><td>PERSEUS EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,95</td></tr>
+<tr><td>PERSEUS EXCLUSIF 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>PHILOS CENTRO</td><td>MAISON ALHAMBRA</td><td class="price-usd">$22,90</td></tr>
+<tr><td>PHILOS OPUS NOIR</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,25</td></tr>
+<tr><td>PHILOS PURA 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,70</td></tr>
+<tr><td>PHILOS ROSSO</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>PHILOS SHINE</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>PINK VELVET 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>PINK VELVET PINK SECRET 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$22,50</td></tr>
+<tr><td>ROSE SEDUCTION VIP POUR FEMME EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,00</td></tr>
+<tr><td>SALVO EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>SALVO ELIXIR 60ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$24,50</td></tr>
+<tr><td>SALVO INTENSE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>SCEPTRE AMAZONITE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,25</td></tr>
+<tr><td>SCEPTRE BRONZITE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>SCEPTRE DESERT 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,50</td></tr>
+<tr><td>SCEPTRE MALACHITE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$31,00</td></tr>
+<tr><td>SCEPTRE OCEANA EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,25</td></tr>
+<tr><td>SMOKY TOUCH 80ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>SO CANDID FEM 85ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>SO CANDID POUR HOMME 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>SUMMER FOREVER</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,25</td></tr>
+<tr><td>TORO POUR HOMME GLACE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$22,50</td></tr>
+<tr><td>VERSENCIA  CRYSTAL  100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$23,50</td></tr>
+<tr><td>VICTORIOSO EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,00</td></tr>
+<tr><td>VICTORIOSO FEARLESS EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,50</td></tr>
+<tr><td>VICTORIOSO HEROIC EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>VICTORIOSO LEGACY EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$28,45</td></tr>
+<tr><td>VICTORIOSO MYTH EDP 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>VICTORIOSO NERO 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>YEAH! MAN 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,00</td></tr>
+<tr><td>YEAH! MAN PARFUM 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,40</td></tr>
+<tr><td>YOUR TOUCH AMBER 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,50</td></tr>
+<tr><td>YOUR TOUCH EXTRAIT 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,50</td></tr>
+<tr><td>YOUR TOUCH INTENSE 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>YOUR TOUCH LEATHER 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$25,40</td></tr>
+<tr><td>YOUR TOUCH MASC 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>YOUR TOUCH OUD 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>YOUR TOUCH SANTAL 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$26,00</td></tr>
+<tr><td>YOUR TOUCH TOBACCO 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$27,00</td></tr>
+<tr><td>YOUR TOUCH WOMAN 100ML</td><td>MAISON ALHAMBRA</td><td class="price-usd">$22,35</td></tr>
+<tr><td>HAWAS BLACK 100ML</td><td>RASASI</td><td class="price-usd">$35,00</td></tr>
+<tr><td>HAWAS ECLAT 100ML</td><td>RASASI</td><td class="price-usd">$42,00</td></tr>
+<tr><td>HAWAS ELIXIR 100ML</td><td>RASASI</td><td class="price-usd">$39,00</td></tr>
+<tr><td>HAWAS FIRE 100ML</td><td>RASASI</td><td class="price-usd">$39,00</td></tr>
+<tr><td>HAWAS FOR HER 100ML</td><td>RASASI</td><td class="price-usd">$34,00</td></tr>
+<tr><td>HAWAS FOR HIM 100ML</td><td>RASASI</td><td class="price-usd">$31,00</td></tr>
+<tr><td>HAWAS ICE 100ML</td><td>RASASI</td><td class="price-usd">$40,00</td></tr>
+<tr><td>SHUHRAH 90ML FEM</td><td>RASASI</td><td class="price-usd">$37,00</td></tr>
+<tr><td>SHUHRAH 90ML MASC</td><td>RASASI</td><td class="price-usd">$35,00</td></tr>
+<tr><td>RAYHAAN AYKA 100ML</td><td>RAYHAAN</td><td class="price-usd">$32,00</td></tr>
+<tr><td>RAYHAAN CORIUM 100ML</td><td>RAYHAAN</td><td class="price-usd">$35,25</td></tr>
+<tr><td>RAYHAAN DAHLIYA 100ML</td><td>RAYHAAN</td><td class="price-usd">$32,50</td></tr>
+<tr><td>RAYHAAN DIVINE 100ML</td><td>RAYHAAN</td><td class="price-usd">$34,00</td></tr>
+<tr><td>RAYHAAN ELIXIR 100ML</td><td>RAYHAAN</td><td class="price-usd">$35,00</td></tr>
+<tr><td>RAYHAAN FLORIANA 100ML</td><td>RAYHAAN</td><td class="price-usd">$34,00</td></tr>
+<tr><td>RAYHAAN FRESH WAVE 100ML</td><td>RAYHAAN</td><td class="price-usd">$35,25</td></tr>
+<tr><td>RAYHAAN IMPERIA 100ML</td><td>RAYHAAN</td><td class="price-usd">$33,00</td></tr>
+<tr><td>RAYHAAN IMPERIA INTENSE 100ML</td><td>RAYHAAN</td><td class="price-usd">$32,50</td></tr>
+<tr><td>RAYHAAN LION EDP 100ML</td><td>RAYHAAN</td><td class="price-usd">$34,00</td></tr>
+<tr><td>RAYHAAN NOCTURNO 100ML</td><td>RAYHAAN</td><td class="price-usd">$33,50</td></tr>
+<tr><td>RAYHAAN OCEAN RUSH 100ML</td><td>RAYHAAN</td><td class="price-usd">$33,00</td></tr>
+<tr><td>RAYHAAN PACIFIC AURA 100ML</td><td>RAYHAAN</td><td class="price-usd">$33,00</td></tr>
+<tr><td>RAYHAAN PACIFIC EDP 100ML</td><td>RAYHAAN</td><td class="price-usd">$33,00</td></tr>
+<tr><td>RAYHAAN PRETTY IN PINK 100ML</td><td>RAYHAAN</td><td class="price-usd">$33,00</td></tr>
+<tr><td>RAYHAAN TIGER 100ML</td><td>RAYHAAN</td><td class="price-usd">$34,00</td></tr>
+<tr><td>RAYHAAN TROPICAL VIBES 100ML</td><td>RAYHAAN</td><td class="price-usd">$38,00</td></tr>
 </tbody>
 </table>
+</section>
+<footer>© 2025 Aperfumate — Fragancias sin chamuyo.</footer>
 </div>
 <script>
-    const buscador = document.getElementById("buscador");
-    const filas = document.querySelectorAll("table.catalogo tbody tr");
+  const pills = document.querySelectorAll('.pill');
+  const q = document.getElementById('q');
+  const tbody = document.querySelector('#catalogo tbody');
+  let activeLinea = '';
 
-    buscador.addEventListener("keyup", function() {
-      const filtro = buscador.value.toLowerCase();
-      filas.forEach(fila => {
-        const texto = fila.innerText.toLowerCase();
-        fila.style.display = texto.includes(filtro) ? "" : "none";
-      });
-    });
-  </script>
+  pills.forEach(p => p.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    activeLinea = (p.dataset.linea || '').toLowerCase();
+    filter();
+  }));
+
+  q.addEventListener('input', filter);
+
+  function filter() {
+    const term = (q.value || '').toLowerCase();
+    for (const tr of Array.from(tbody.rows)) {
+      const frag = tr.cells[0].innerText.toLowerCase();
+      const lin  = tr.cells[1].innerText.toLowerCase();
+      const okLinea = !activeLinea || lin === activeLinea;
+      const okQ = !term || frag.includes(term) || lin.includes(term);
+      tr.style.display = (okLinea && okQ) ? '' : 'none';
+    }
+  }
+</script>
 </body>
 </html>
